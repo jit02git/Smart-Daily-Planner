@@ -26,9 +26,18 @@ const deleteTask = async (req, res) => {
     
 }
 
+const updateTask = async (req, res) => {
+
+    const updatedTask = await task.findByIdAndUpdate(req.params.id, req.body, { new: true});
+    res.json(updatedTask);
+
+}
+
+
 module.exports = {
     createTask,
     getTaskList,
     getTaskById,
     deleteTask,
+    updateTask
 };
