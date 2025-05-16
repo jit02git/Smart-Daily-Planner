@@ -24,6 +24,8 @@ function TaskForm({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(task);
+    console.log(onSubmit(task));
+    
     // Optionally reset form
     // setTask({ ... }); 
   };
