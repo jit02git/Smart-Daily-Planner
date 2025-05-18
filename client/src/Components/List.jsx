@@ -15,10 +15,7 @@ function TodoApp() {
         <TodoForm addTodo={addTodo} />
         <ul className="mt-6 space-y-2">
           {todos.map((todo) => (
-            <li
-              key={todo.id}
-              className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-gray-700"
-            >
+            <li key={todo.id} className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-gray-700">
               {todo.text}
             </li>
           ))}
