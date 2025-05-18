@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function TaskForm({ onSubmit }) {
   const [task, setTask] = useState({
-    title: '',
-    description: '',
-    dueDate: '',
-    dueTime: '',
+    title: "",
+    description: "",
+    dueDate: "",
+    dueTime: "",
     repeat: false,
-    priority: 'Medium',
-    category: '',
-    reminder: '',
+    priority: "Medium",
+    category: "",
+    reminder: "",
     status: false,
   });
 
@@ -17,7 +17,7 @@ function TaskForm({ onSubmit }) {
     const { name, value, type, checked } = e.target;
     setTask({
       ...task,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -25,13 +25,16 @@ function TaskForm({ onSubmit }) {
     e.preventDefault();
     onSubmit(task);
     console.log(onSubmit(task));
-    
+
     // Optionally reset form
-    // setTask({ ... }); 
+    // setTask({ ... });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-lg">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 bg-white p-6 rounded-xl shadow-lg"
+    >
       <h2 className="text-xl font-semibold text-gray-800">Create a New Task</h2>
 
       <div>
