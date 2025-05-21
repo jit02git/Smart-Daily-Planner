@@ -21,7 +21,6 @@ function TaskForm({ onSubmit }) {
     });
   };
 
-  // ...existing code...
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,15 +38,22 @@ function TaskForm({ onSubmit }) {
       }
 
       const data = await response.json();
-      onSubmit(data); // Pass the created task data to parent
-      // Optionally reset form
-      // setTask({ ... });
+      onSubmit(data); 
+      setTask({
+        title: "",
+        description: "",
+        dueDate: "",
+        dueTime: "",
+        repeat: false,
+        priority: "Medium",
+        category: "",
+        reminder: "",
+        status: false,
+      });
     } catch (error) {
       console.error(error);
-      // Optionally show error to user
     }
   };
-  // ...existing code...
 
   return (
     <form
