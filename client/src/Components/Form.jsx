@@ -21,14 +21,33 @@ function TaskForm({ onSubmit }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  // ...existing code...
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(task);
-    console.log(onSubmit(task));
 
-    // Optionally reset form
-    // setTask({ ... });
+    try {
+      const response = await fetch("http://localhost:5000/api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create task");
+      }
+
+      const data = await response.json();
+      onSubmit(data); // Pass the created task data to parent
+      // Optionally reset form
+      // setTask({ ... });
+    } catch (error) {
+      console.error(error);
+      // Optionally show error to user
+    }
   };
+  // ...existing code...
 
   return (
     <form
