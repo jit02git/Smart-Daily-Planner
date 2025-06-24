@@ -25,7 +25,7 @@ function TaskForm({ onSubmit }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/tasks", {
+      const response = await fetch("http://localhost:5000/api/task/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

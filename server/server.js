@@ -1,9 +1,12 @@
 const express = require('express');
 const dbConnnection = require('./Connection/db');
 const taskRouter = require('./Route/TaskRoute');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 
+
+app.use(cors()); 
 dbConnnection()
 
 app.use(express.json());  

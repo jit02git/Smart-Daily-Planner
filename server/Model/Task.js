@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const TaskSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String },
-  dueDate: { type: String, required: true }, 
-  dueTime: { type: String },
+  dueDate: { type: Date, required: true },
+  dueTime: { type: String, required: true },
   repeat: { type: Boolean, default: false },
   priority: {
     type: String,

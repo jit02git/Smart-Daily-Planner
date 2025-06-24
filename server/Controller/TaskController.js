@@ -4,11 +4,13 @@ const createTask = async (req, res) => {
     const task = new Task(req.body);
     try {
         await task.save();
-        return res.status(201).send(task)
+        return res.status(201).send(task);
     } catch (error) {
-        console.error(err);
+        console.error(error); 
+        return res.status(500).send({ message: 'Something went wrong', error });
     }
 };
+
 
 const getTaskList = async (req, res) => {
     const getTask = await Task.find();
