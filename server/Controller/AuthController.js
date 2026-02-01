@@ -46,7 +46,7 @@ const login = async (req, res) => {
 
   //Now generate JWT token here
   const token = jwt.sign({ userId: existingUser._id }, "your-secret-key", {
-    expiresIn: "1h",
+    expiresIn: "24h",
   });
 
   const saveUserToken = await auth.findByIdAndUpdate(
